@@ -39,7 +39,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: v
-        run: echo "version=$(grep '^version:' apps/unipal/pubspec.yaml | sed -E 's/version: *([0-9.]+).*/\1/')" >> "$GITHUB_OUTPUT"
+        run: |
+          echo "version=$(grep '^version:' apps/unipal/pubspec.yaml | sed -E 's/version: *([0-9.]+).*/\1/')" >> "$GITHUB_OUTPUT"
 
   windows:
     name: Windows installer
