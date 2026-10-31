@@ -9,7 +9,7 @@ on:
     inputs:
       api_url:
         description: API the app talks to
-        default: https://api.unipal.group
+        default: https://unipal-api-develop.on-forge.com
         required: true
   push:
     tags: ['desktop-v*']
@@ -28,7 +28,8 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  API_URL: ${{ inputs.api_url || 'https://api.unipal.group' }}
+  # Staging until production (api.unipal.group) is live.
+  API_URL: ${{ inputs.api_url || 'https://unipal-api-develop.on-forge.com' }}
 
 jobs:
   version:
