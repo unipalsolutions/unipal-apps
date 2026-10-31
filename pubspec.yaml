@@ -1,0 +1,10 @@
+name: unipal_apps
+publish_to: none
+
+environment:
+  sdk: ^3.8.0
+
+# Dart pub workspace: one `flutter pub get` at the root resolves every package.
+workspace:
+  - packages/unipal_api
+  - apps/unipal
