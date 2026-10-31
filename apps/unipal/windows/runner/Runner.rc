@@ -95,7 +95,7 @@ BEGIN
             VALUE "InternalName", "unipal" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 UniPal Group. All rights reserved." "\0"
             VALUE "OriginalFilename", "unipal.exe" "\0"
-            VALUE "ProductName", "unipal" "\0"
+            VALUE "ProductName", "UniPal" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

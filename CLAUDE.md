@@ -40,5 +40,7 @@ This is a Dart pub workspace: run `flutter pub get` once at the root.
 ## Branches and releases
 
 - `main` = released and `develop` = integration. Work on a feature branch and open a PR into `develop`.
-- Signed release builds (APK, TestFlight, MSIX, DMG) will come from a release workflow that publishes the hub's download links.
-- macOS release builds need the Keychain Sharing capability for flutter_secure_storage once signing is set up.
+- Desktop installers come from `.github/workflows/desktop.yml` (Actions > "Desktop installers" > Run workflow, with the API URL, or push a tag `desktop-vX.Y.Z`). It builds a per-user Windows installer with Inno Setup (`apps/unipal/windows/installer/unipal.iss`, keep its AppId) and a macOS `.dmg`, and attaches both to a GitHub pre-release. The version comes from `apps/unipal/pubspec.yaml`.
+- Neither installer is code-signed yet: Windows shows SmartScreen ("More info > Run anyway") and macOS needs right-click > Open the first time. Signing (Windows certificate, Apple Developer ID + notarization) is a later step.
+- Until macOS builds are signed with a team, `session.dart` keeps the token in the login keychain (`usesDataProtectionKeychain: false`). Switch it back once the Keychain Sharing capability is set up.
+- Mobile release builds (APK, TestFlight) are still to come.

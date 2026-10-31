@@ -12,7 +12,9 @@ import 'config.dart';
 class SessionController extends ChangeNotifier {
   SessionController({UnipalApi? api, FlutterSecureStorage? storage})
     : api = api ?? UnipalApi(baseUrl: apiUrl),
-      _storage = storage ?? const FlutterSecureStorage();
+      // The macOS build is not signed with a team yet, so it cannot use the data-protection keychain
+      // (that needs the Keychain Sharing entitlement). The login keychain works without it.
+      _storage = storage ?? const FlutterSecureStorage(mOptions: MacOsOptions(usesDataProtectionKeychain: false));
 
   static const _tokenKey = 'unipal.token';
   static const _companyKey = 'unipal.company';
