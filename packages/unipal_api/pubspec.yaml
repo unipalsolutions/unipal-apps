@@ -1,0 +1,15 @@
+name: unipal_api
+description: Dart client for the UniPal platform API (api.unipal.group/v1).
+version: 0.1.0
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  http: ^1.2.0
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.0
